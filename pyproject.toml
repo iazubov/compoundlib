@@ -1,1 +1,64 @@
- 
+ [build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compoundlib"
+version = "0.1.0"
+description = "A Python library for compound interest calculations"
+readme = "README.md"
+authors = [
+    {name = "Ivan", email = "ivanzub542@gmail.com"}
+]
+license = {text = "MIT"}
+keywords = ["finance", "compound-interest", "investment", "calculator"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = []
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/ВАШ_ЛОГИН/compoundlib"
+Repository = "https://github.com/ВАШ_ЛОГИН/compoundlib"
+"Bug Tracker" = "https://github.com/ВАШ_ЛОГИН/compoundlib/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[tool.setuptools]
+packages = ["compoundlib"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
+
+[tool.setuptools.package-dir]
+"" = "."
+"compoundlib" = "compoundlib"
+
+[project.scripts]
+compoundlib-cli = "compoundlib.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--tb=short"]
