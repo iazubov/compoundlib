@@ -1,28 +1,16 @@
-"""
-Basic compound interest calculations.
-"""
-
 import math
 
 
-def future_value(principal: float, rate: float, time: float, 
+def future_value(principal: float, rate: float, time: float, #Расчет будущей стоимости
                  compounding: int = 1) -> float:
+    # principal = начальный капитал (P)
+    # rate = годовая ставка (r) в десятичной форме (5% = 0.05)
+    # time = время в годах (t)
+    # compounding = периоды начисления в год (n)
     """
-    Calculate the future value of an investment with compound interest.
     
     Formula: FV = P * (1 + r/n)^(n*t)
     
-    Args:
-        principal: Initial investment amount (P)
-        rate: Annual interest rate (decimal, e.g., 0.05 for 5%)
-        time: Time in years (t)
-        compounding: Number of compounding periods per year (n)
-    
-    Returns:
-        Future value of the investment
-    
-    Raises:
-        ValueError: If any input is invalid
     
     Examples:
         >>> future_value(1000, 0.05, 10)
@@ -43,24 +31,12 @@ def future_value(principal: float, rate: float, time: float,
     return principal * (1 + rate/compounding) ** (compounding * time)
 
 
-def present_value(future_value_amount: float, rate: float, time: float, 
+def present_value(future_value_amount: float, rate: float, time: float, #Расчет текущей стоимости ( сколько нужно вложить сегодня, чтобы получить нужную сумму в будущем)
                   compounding: int = 1) -> float:
     """
-    Calculate the present value needed to reach a future value.
     
     Formula: PV = FV / (1 + r/n)^(n*t)
     
-    Args:
-        future_value_amount: Desired future amount (FV)
-        rate: Annual interest rate (decimal)
-        time: Time in years
-        compounding: Number of compounding periods per year
-    
-    Returns:
-        Present value needed
-    
-    Raises:
-        ValueError: If any input is invalid
     
     Examples:
         >>> present_value(1000, 0.05, 5)
@@ -79,24 +55,12 @@ def present_value(future_value_amount: float, rate: float, time: float,
     return future_value_amount / (1 + rate/compounding) ** (compounding * time)
 
 
-def compound_interest(principal: float, rate: float, time: float, 
+def compound_interest(principal: float, rate: float, time: float, #Расчет начисленных процентов(Рассчитывает только сумму заработанных процентов)
                       compounding: int = 1) -> float:
     """
-    Calculate the compound interest earned.
     
     Formula: CI = P * [(1 + r/n)^(n*t) - 1]
     
-    Args:
-        principal: Initial investment amount
-        rate: Annual interest rate (decimal)
-        time: Time in years
-        compounding: Number of compounding periods per year
-    
-    Returns:
-        Compound interest earned
-    
-    Raises:
-        ValueError: If any input is invalid
     
     Examples:
         >>> compound_interest(1000, 0.05, 10)
@@ -115,24 +79,11 @@ def compound_interest(principal: float, rate: float, time: float,
     return principal * ((1 + rate/compounding) ** (compounding * time) - 1)
 
 
-def annual_rate(present_value: float, future_value: float, time: float, 
+def annual_rate(present_value: float, future_value: float, time: float, #Рассчитывает, какая ставка нужна для достижения цели
                 compounding: int = 1) -> float:
-    """
-    Calculate the annual interest rate needed.
-    
+    """    
     Formula: r = n * [(FV/PV)^(1/(n*t)) - 1]
     
-    Args:
-        present_value: Current value (PV)
-        future_value: Desired future value (FV)
-        time: Time in years
-        compounding: Number of compounding periods per year
-    
-    Returns:
-        Required annual interest rate (decimal)
-    
-    Raises:
-        ValueError: If any input is invalid
     
     Examples:
         >>> annual_rate(1000, 2000, 10)
@@ -153,25 +104,10 @@ def annual_rate(present_value: float, future_value: float, time: float,
     return compounding * ((future_value / present_value) ** (1 / (compounding * time)) - 1)
 
 
-def time_to_goal(principal: float, future_value: float, rate: float, 
+def time_to_goal(principal: float, future_value: float, rate: float, #Рассчитывает, сколько времени потребуется для достижения финансовой цели
                  compounding: int = 1) -> float:
-    """
-    Calculate time needed to reach investment goal.
-    
-    Formula: t = log(FV/PV) / (n * log(1 + r/n))
-    
-    Args:
-        principal: Initial investment
-        future_value: Desired future value
-        rate: Annual interest rate (decimal)
-        compounding: Number of compounding periods per year
-    
-    Returns:
-        Time in years
-    
-    Raises:
-        ValueError: If any input is invalid
-        ZeroDivisionError: If rate is zero
+    """    
+    Formula: t = log(FV/PV) / (n * log(1 + r/n)
     
     Examples:
         >>> time_to_goal(1000, 2000, 0.07)

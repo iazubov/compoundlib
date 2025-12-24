@@ -33,9 +33,9 @@ dependencies = []
 requires-python = ">=3.8"
 
 [project.urls]
-Homepage = "https://github.com/ВАШ_ЛОГИН/compoundlib"
-Repository = "https://github.com/ВАШ_ЛОГИН/compoundlib"
-"Bug Tracker" = "https://github.com/ВАШ_ЛОГИН/compoundlib/issues"
+Homepage = "https://github.com/iazubov/compoundlib"
+Repository = "https://github.com/iazubov/compoundlib/tree/main/compoundlib"
+"Bug Tracker" = ""
 
 [project.optional-dependencies]
 dev = [

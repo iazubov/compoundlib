@@ -30,6 +30,3 @@ plan = cl.retirement_calculator(
 print(f"   Накопите к пенсии: {plan['future_value_nominal']:,.0f} руб")
 print(f"   Ежемесячный доход на пенсии: {plan['monthly_income_nominal']:,.0f} руб")
 
-print("\n" + "=" * 50)
-print(" Библиотека работает корректно!")
-print("Установить: pip install compoundlib")
